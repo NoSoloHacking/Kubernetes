@@ -14,7 +14,7 @@ sudo swapoff -a
 sudo sed -i.bak '/\bswap\b/ s/^/#/' /etc/fstab
 
 echo "=== Instalando dependencias ==="
-sudo apt install -y apt-transport-https ca-certificates curl gnupg lsb-release software-properties-common
+sudo apt install -y apt-transport-https ca-certificates curl gnupg lsb-release software-properties-common vim bash-completion locate net-tools command-not-found
 
 echo "=== Configurando parámetros del kernel ==="
 cat <<EOF | sudo tee /etc/modules-load.d/containerd.conf
@@ -39,6 +39,7 @@ sudo apt install -y containerd
 echo "=== Configurando Containerd ==="
 sudo mkdir -p /etc/containerd
 sudo containerd config default | sudo tee /etc/containerd/config.toml
+sudo sed -i 's/SystemdCgroup = false/SystemdCgroup = true/' /etc/containerd/config.toml
 
 echo "=== Reiniciando y habilitando Containerd ==="
 sudo systemctl restart containerd
