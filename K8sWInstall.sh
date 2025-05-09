@@ -1,5 +1,7 @@
 #!/bin/bash
-
+######################################################
+#### Script para instalar Kubernetes worker nodes ####
+######################################################
 set -e
 
 echo "=== Actualizando el sistema ==="
