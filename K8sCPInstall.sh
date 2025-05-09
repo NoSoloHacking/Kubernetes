@@ -1,5 +1,9 @@
 #!/bin/bash
 
+#############################################################
+#### Script para instalar Kubernetes control plane nodes ####
+#############################################################
+
 set -e
 
 echo "=== Actualizando el sistema ==="
